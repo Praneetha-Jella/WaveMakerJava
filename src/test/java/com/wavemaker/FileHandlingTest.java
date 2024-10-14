@@ -1,5 +1,8 @@
 package com.wavemaker;
 
+import com.wavemaker.file.FileContent;
+import com.wavemaker.file.FileHandling;
+import com.wavemaker.file.WordLocator;
 import org.junit.jupiter.api.*;
 import java.io.*;
 import java.nio.file.Files;

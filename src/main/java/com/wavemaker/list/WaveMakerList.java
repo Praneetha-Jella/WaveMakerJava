@@ -1,4 +1,4 @@
-package com.wavemaker;
+package com.wavemaker.list;
 
 import java.util.*;
 
@@ -29,7 +29,11 @@ public class WaveMakerList<E> implements List<E> {
         elements[size++] = e;
         return true;
     }
-
+    /**
+     * \
+     * @param index index at which the specified element is to be inserted
+     * @param element element to be inserted
+     */
     @Override
     public void add(int index, E element) {
         checkIndex(index);
@@ -81,6 +85,7 @@ public class WaveMakerList<E> implements List<E> {
     public boolean isEmpty() {
         return size==0;
     }
+
     @Override
     public boolean contains(Object o) {
         boolean flag = false;
@@ -92,6 +97,7 @@ public class WaveMakerList<E> implements List<E> {
         }
         return flag;
     }
+
     @Override
     public E set(int index, E element) {
         checkIndex(index);
@@ -99,6 +105,7 @@ public class WaveMakerList<E> implements List<E> {
         elements[index] = element;
         return (E) o;
     }
+
     @Override
     public boolean remove(Object o) {
         for (int i = 0; i < elements.length; i++) {
@@ -109,6 +116,7 @@ public class WaveMakerList<E> implements List<E> {
         }
         return false;
     }
+
     @Override
     public int indexOf(Object o) {
         for (int i = 0; i < elements.length; i++) {
@@ -118,6 +126,7 @@ public class WaveMakerList<E> implements List<E> {
         }
         return 0;
     }
+
     @Override
     public int lastIndexOf(Object o) {
         int lastIndex = 0;
@@ -141,7 +150,6 @@ public class WaveMakerList<E> implements List<E> {
 
     private void checkCapacity(int minCapacity) {
         if (elements.length - minCapacity < 0) {
-            // int oldCapacity = elements.length;
             int newCapacity = minCapacity * 2;
             elements = Arrays.copyOf(elements, newCapacity);
         }
@@ -199,6 +207,7 @@ public class WaveMakerList<E> implements List<E> {
         }
         return true;
     }
+
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
         int newSize = size+c.size();
@@ -208,11 +217,17 @@ public class WaveMakerList<E> implements List<E> {
         }
         return true;
     }
+
     @Override
     public boolean retainAll(Collection<?> c) {
 
         return false;
     }
+
+    /**
+     *
+     * @param index
+     */
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Invalid index entered: " + index);
@@ -226,43 +241,7 @@ public class WaveMakerList<E> implements List<E> {
             throw new IndexOutOfBoundsException("Invalid index entered.");
         }
     }
-//    public static void main(String[] args){
-//        WaveMakerList<Integer> customList = new WaveMakerList<>();
-//        //customList.add(1);
-////        customList.add(2);
-////        customList.add(2);
-////        customList.add(2);
-////        customList.add(2);
-////        customList.add(2);
-////        customList.add(4);
-//        System.out.println(customList);
-////        System.out.println("Adding 0 at Index 1:");
-////        customList.add(1, 0);
-////        System.out.println(customList);
-////        System.out.println("Getting element at index 2: " + customList.get(2));
-////        System.out.println("The list is empty :" + customList.isEmpty());
-////
-////        customList.set(1, 99);
-////        System.out.println("List After set :" + customList);
-////        System.out.println("The list contains the element 9: " + customList.contains(9));
-////
-////        System.out.println("Removing object 2: " + customList.remove(2));
-////        System.out.println(customList);
-////
-////        System.out.println("Index of element 99 is " + customList.indexOf(99));
-////        System.out.println("Last index of element 2 is " + customList.lastIndexOf(2));
-////        System.out.println("Now the size is: "+customList.size);
-////        System.out.println("Adding 0 at Index 1:");
-////        customList.add(1,0);
-////        System.out.println(customList);
-////        System.out.println("Now the size is: "+customList.size);
-////
-////        System.out.println("Removing element at index 2 which is 0:");
-////        customList.remove(2);
-////        System.out.println("Now after removal the list is : "+customList);
-////        System.out.println("After removal the size is:" +customList.size);
-//    }
-////    //------------------------------------------------------------------------
+
    @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {

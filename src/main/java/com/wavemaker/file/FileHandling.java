@@ -1,4 +1,4 @@
-package com.wavemaker;
+package com.wavemaker.file;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ public class FileHandling {
         printWordOccurrences("old man","/home/praneethaj_500371",true);
     }
 
-    static void writeToFile(String line, String filePath) {
+    public static void writeToFile(String line, String filePath) {
         if (line == null || line.isEmpty()) {
             throw new IllegalArgumentException("The line to write cannot be null or empty.");
         }
@@ -32,12 +32,11 @@ public class FileHandling {
             writer.close();
             System.out.println("Successfully wrote to the file");
         } catch (IOException e) {
-            // Propagate the IOException instead of just printing it
             throw new RuntimeException("An error occurred while writing to the file: " + e.getMessage(), e);
         }
     }
 
-    static FileContent readFromFile(String filePath) throws IOException {
+    public static FileContent readFromFile(String filePath) throws IOException {
         if (filePath == null || filePath.isEmpty()) {
             throw new IllegalArgumentException("File path cannot be null or empty.");
         }
@@ -111,7 +110,7 @@ public class FileHandling {
         }
     }
 
-    static List<WordLocator> findWordWithLineAndIndex(String word, String fileData) {
+    public static List<WordLocator> findWordWithLineAndIndex(String word, String fileData) {
         if (word == null) {
             throw new NullPointerException("The word to search cannot be null.");
         }

@@ -1,4 +1,4 @@
-package com.wavemaker;
+package com.wavemaker.file;
 import java.io.FileWriter;
 import java.io.IOException;
 public class WriteToFile {

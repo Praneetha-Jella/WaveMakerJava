@@ -1,4 +1,4 @@
-package com.wavemaker;
+package com.wavemaker.file;
 
 public class FileContent {
         private String content;
